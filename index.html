@@ -273,19 +273,23 @@
     </div>
 
     <!-- 背景音乐（隐藏，自动循环） -->
-    <audio id="bgm" src="audio/%E9%A6%96%E9%A1%B5.mp3" loop autoplay></audio>
+    <audio id="bgm" src="audio/%E9%A6%96%E9%A1%B5.mp3" loop preload="auto"></audio>
     <script>
     (function() {
         var bgm = document.getElementById('bgm');
-        bgm.load();
-        var p = bgm.play();
-        if (p !== undefined) {
-            p.catch(function() {
-                var playNow = function() { bgm.play().catch(function(){}); };
-                document.addEventListener('click', playNow, { once: true });
-                document.addEventListener('touchstart', playNow, { once: true });
-            });
+        var started = false;
+        function unlock() {
+            if (started) return;
+            started = true;
+            bgm.play().catch(function(){});
         }
+        var p = bgm.play();
+        if (p) p.catch(function() {
+            document.body.addEventListener('touchstart', unlock, {passive: true});
+            document.body.addEventListener('touchend', unlock, {passive: true});
+            document.body.addEventListener('click', unlock);
+            document.addEventListener('scroll', unlock, {once: true});
+        });
     })();
     </script>
 </body>
