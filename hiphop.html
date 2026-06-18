@@ -101,5 +101,18 @@
             <p><a href="about.html">关于本站</a> · <a href="index.html">返回首页</a></p>
         </div>
     </div>
+
+    <audio id="bgm" src="audio/%E5%98%BB%E5%93%88%E8%AF%B4%E5%94%B1.mp3" loop autoplay></audio>
+    <script>
+    (function() {
+        var bgm = document.getElementById('bgm');
+        var p = bgm.play();
+        if (p !== undefined) {
+            p.catch(function() {
+                document.addEventListener('click', function() { bgm.play(); }, { once: true });
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
