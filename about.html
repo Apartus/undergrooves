@@ -136,10 +136,13 @@
     <script>
     (function() {
         var bgm = document.getElementById('bgm');
+        bgm.load();
         var p = bgm.play();
         if (p !== undefined) {
             p.catch(function() {
-                document.addEventListener('click', function() { bgm.play(); }, { once: true });
+                var playNow = function() { bgm.play().catch(function(){}); };
+                document.addEventListener('click', playNow, { once: true });
+                document.addEventListener('touchstart', playNow, { once: true });
             });
         }
     })();
