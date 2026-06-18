@@ -10,12 +10,17 @@
 }
 
 body {
-    font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
     background: #080812 url('../imagefiles/img007.jpg') no-repeat fixed center center;
     background-size: cover;
     color: #e0e0e0;
-    line-height: 1.8;
+    line-height: 1.9;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 body::before {
@@ -47,9 +52,9 @@ body::before {
 }
 
 #header .site-title {
-    font-size: 38px;
-    font-weight: bold;
-    letter-spacing: 10px;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 12px;
     color: #e8c547;
     margin-bottom: 8px;
     text-shadow: 0 0 30px rgba(232, 197, 71, 0.25);
@@ -57,8 +62,9 @@ body::before {
 
 #header .site-subtitle {
     font-size: 13px;
-    color: #7777aa;
+    color: #8888bb;
     letter-spacing: 5px;
+    font-weight: 300;
 }
 
 /* --- 导航条 --- */
@@ -85,6 +91,7 @@ body::before {
     color: #9999bb;
     text-decoration: none;
     font-size: 14px;
+    font-weight: 400;
     letter-spacing: 3px;
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
@@ -141,18 +148,20 @@ body::before {
 }
 
 .hero h2 {
-    font-size: 28px;
+    font-size: 26px;
+    font-weight: 600;
     color: #e8c547;
     letter-spacing: 5px;
     margin-bottom: 18px;
 }
 
 .hero p {
-    color: #aaaacc;
+    color: #b0b0cc;
     font-size: 15px;
     line-height: 2.2;
     max-width: 680px;
     margin: 0 auto;
+    font-weight: 300;
 }
 
 /* --- 分类区块标题 --- */
@@ -364,9 +373,10 @@ body::before {
 
 .album-detail .album-info .intro-text {
     font-size: 14px;
-    color: #cccce0;
-    line-height: 2;
+    color: #c8c8dd;
+    line-height: 2.1;
     text-align: justify;
+    font-weight: 300;
 }
 
 /* --- 锚点导航 --- */
@@ -487,10 +497,11 @@ body::before {
 .about-section h3.default    { color: #e8c547; }
 
 .about-section p {
-    font-size: 14px;
-    color: #cccce0;
-    line-height: 2;
+    font-size: 15px;
+    color: #c8c8dd;
+    line-height: 2.1;
     margin-bottom: 12px;
+    font-weight: 300;
 }
 
 .about-section ul {
