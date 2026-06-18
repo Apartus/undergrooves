@@ -142,22 +142,21 @@
         </div>
     </div>
 
-    <audio id="bgm" src="audio/%E6%91%87%E6%BB%9A%E4%B9%90.mp3" loop preload="auto"></audio>
+    <audio id="bgm" src="audio/%E6%91%87%E6%BB%9A%E4%B9%90.mp3" loop preload="auto" playsinline></audio>
     <script>
     (function() {
         var bgm = document.getElementById('bgm');
-        var started = false;
-        function unlock() {
-            if (started) return;
-            started = true;
-            bgm.play().catch(function(){});
-        }
+        bgm.load();
         var p = bgm.play();
         if (p) p.catch(function() {
-            document.body.addEventListener('touchstart', unlock, {passive: true});
-            document.body.addEventListener('touchend', unlock, {passive: true});
-            document.body.addEventListener('click', unlock);
-            document.addEventListener('scroll', unlock, {once: true});
+            document.body.addEventListener('touchend', function go() {
+                bgm.play();
+                document.body.removeEventListener('touchend', go);
+            });
+            document.body.addEventListener('click', function go() {
+                bgm.play();
+                document.body.removeEventListener('click', go);
+            });
         });
     })();
     </script>
