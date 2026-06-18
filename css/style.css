@@ -1,0 +1,584 @@
+/* ============================================
+   律动之下 UnderGrooves - 统一样式表
+   ============================================ */
+
+/* --- 基础重置与全局样式 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+    background: #080812 url('../imagefiles/img007.jpg') no-repeat fixed center center;
+    background-size: cover;
+    color: #e0e0e0;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(6, 6, 18, 0.9);
+    z-index: -1;
+}
+
+/* --- 主容器 --- */
+#container {
+    width: 1000px;
+    margin: 0 auto;
+    background: rgba(18, 18, 38, 0.96);
+    min-height: 100vh;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+/* --- 头部区域 --- */
+#header {
+    text-align: center;
+    padding: 44px 20px 24px 20px;
+    border-bottom: 1px solid #222244;
+    background: linear-gradient(180deg, #101028 0%, #121226 100%);
+}
+
+#header .site-title {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    color: #e8c547;
+    margin-bottom: 8px;
+    text-shadow: 0 0 30px rgba(232, 197, 71, 0.25);
+}
+
+#header .site-subtitle {
+    font-size: 13px;
+    color: #7777aa;
+    letter-spacing: 5px;
+}
+
+/* --- 导航条 --- */
+#navbar {
+    background: #10101e;
+    border-bottom: 1px solid #222244;
+    text-align: center;
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul li {
+    flex: 1;
+    max-width: 160px;
+}
+
+#navbar ul li a {
+    display: block;
+    padding: 14px 0;
+    color: #9999bb;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+}
+
+#navbar ul li a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#navbar ul li a.active {
+    color: #e8c547;
+    border-bottom-color: #e8c547;
+    font-weight: bold;
+}
+
+/* 导航悬停时各分类颜色 */
+#navbar ul li:nth-child(1) a:hover { border-bottom-color: #ffffff; }
+#navbar ul li:nth-child(2) a:hover { border-bottom-color: #00d4ff; }
+#navbar ul li:nth-child(3) a:hover { border-bottom-color: #ff6b6b; }
+#navbar ul li:nth-child(4) a:hover { border-bottom-color: #ffb347; }
+#navbar ul li:nth-child(5) a:hover { border-bottom-color: #6bcb77; }
+#navbar ul li:nth-child(6) a:hover { border-bottom-color: #c084fc; }
+
+/* --- 内容区域 --- */
+#content {
+    padding: 30px;
+}
+
+/* --- Hero 区域（首页）--- */
+.hero {
+    text-align: center;
+    padding: 44px 30px;
+    margin-bottom: 36px;
+    background: linear-gradient(135deg, rgba(20, 20, 50, 0.7), rgba(12, 12, 35, 0.9));
+    border-radius: 8px;
+    border: 1px solid #222244;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 微弱的律动线条装饰 */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e8c547, transparent);
+}
+
+.hero h2 {
+    font-size: 28px;
+    color: #e8c547;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    color: #aaaacc;
+    font-size: 15px;
+    line-height: 2.2;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* --- 分类区块标题 --- */
+.section-title {
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+    margin-top: 10px;
+    border-bottom: 1px solid #222244;
+    position: relative;
+    color: #ddddee;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+}
+
+/* 各分类标题下划线颜色 */
+.section-title.electronic::after { background: #00d4ff; }
+.section-title.rock::after       { background: #ff6b6b; }
+.section-title.hiphop::after     { background: #ffb347; }
+.section-title.chinese::after    { background: #6bcb77; }
+
+/* --- 专辑卡片网格 --- */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 36px;
+}
+
+.album-card {
+    background: rgba(24, 24, 48, 0.8);
+    border: 1px solid #1e1e3a;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+    border-color: #444477;
+}
+
+.album-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s;
+}
+
+.album-card:hover img {
+    filter: brightness(1.1);
+}
+
+.album-card .card-info {
+    padding: 14px 16px 16px;
+}
+
+.album-card .card-info h3 {
+    font-size: 15px;
+    color: #e8c547;
+    margin-bottom: 3px;
+    letter-spacing: 1px;
+}
+
+.album-card .card-info .artist {
+    font-size: 13px;
+    color: #8888aa;
+    margin-bottom: 8px;
+}
+
+.album-card .card-info .card-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.album-card .card-info .year-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #9999bb;
+    letter-spacing: 1px;
+}
+
+.album-card .card-info .genre-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+/* 首页卡片各分类颜色提示 */
+.album-card.card-electronic .genre-tag { background: rgba(0, 212, 255, 0.12); color: #00d4ff; }
+.album-card.card-electronic:hover { border-color: rgba(0, 212, 255, 0.4); }
+
+.album-card.card-rock .genre-tag { background: rgba(255, 107, 107, 0.12); color: #ff6b6b; }
+.album-card.card-rock:hover { border-color: rgba(255, 107, 107, 0.4); }
+
+.album-card.card-hiphop .genre-tag { background: rgba(255, 179, 71, 0.12); color: #ffb347; }
+.album-card.card-hiphop:hover { border-color: rgba(255, 179, 71, 0.4); }
+
+.album-card.card-chinese .genre-tag { background: rgba(107, 203, 119, 0.12); color: #6bcb77; }
+.album-card.card-chinese:hover { border-color: rgba(107, 203, 119, 0.4); }
+
+.album-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 专辑详情（分类页面）--- */
+.album-detail {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 36px;
+    padding: 28px;
+    background: rgba(24, 24, 48, 0.6);
+    border: 1px solid #1e1e3a;
+    border-left: 3px solid #333355;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.3s ease;
+}
+
+.album-detail:hover {
+    background: rgba(28, 28, 52, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.album-detail .album-cover {
+    flex: 0 0 280px;
+}
+
+.album-detail .album-cover img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.album-detail .album-info {
+    flex: 1;
+}
+
+.album-detail .album-info h3 {
+    font-size: 22px;
+    color: #e8c547;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.album-detail .album-info .artist-name {
+    font-size: 16px;
+    color: #aaaacc;
+    margin-bottom: 4px;
+}
+
+.album-detail .album-info .meta {
+    font-size: 13px;
+    color: #666688;
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.album-detail .album-info .meta span {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* 分类页各流派主题色 */
+.genre-electronic .meta span { background: rgba(0, 212, 255, 0.12); color: #00ccf0; }
+.genre-electronic { border-left-color: #00d4ff; }
+.genre-electronic .album-info h3 { color: #00d4ff; }
+
+.genre-rock .meta span { background: rgba(255, 107, 107, 0.12); color: #ff6060; }
+.genre-rock { border-left-color: #ff6b6b; }
+.genre-rock .album-info h3 { color: #ff6b6b; }
+
+.genre-hiphop .meta span { background: rgba(255, 179, 71, 0.12); color: #ffa830; }
+.genre-hiphop { border-left-color: #ffb347; }
+.genre-hiphop .album-info h3 { color: #ffb347; }
+
+.genre-chinese .meta span { background: rgba(107, 203, 119, 0.12); color: #5db868; }
+.genre-chinese { border-left-color: #6bcb77; }
+.genre-chinese .album-info h3 { color: #6bcb77; }
+
+.album-detail .album-info .intro-text {
+    font-size: 14px;
+    color: #cccce0;
+    line-height: 2;
+    text-align: justify;
+}
+
+/* --- 锚点导航 --- */
+.anchor-nav {
+    background: rgba(20, 20, 42, 0.6);
+    border: 1px solid #1e1e3a;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.anchor-nav span {
+    color: #9999bb;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-right: 6px;
+}
+
+.anchor-nav a {
+    display: inline-block;
+    color: #aaaacc;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: all 0.25s ease;
+    letter-spacing: 1px;
+}
+
+.anchor-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- 页脚 --- */
+#footer {
+    text-align: center;
+    padding: 28px 20px;
+    border-top: 1px solid #1e1e3a;
+    background: #10101e;
+    color: #555577;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+#footer p {
+    margin: 4px 0;
+}
+
+#footer .footer-name {
+    color: #8888aa;
+    font-size: 15px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+#footer a {
+    color: #7777aa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#footer a:hover {
+    color: #e8c547;
+}
+
+/* --- 回到顶部 --- */
+.back-to-top {
+    text-align: right;
+    margin-top: 16px;
+}
+
+.back-to-top a {
+    display: inline-block;
+    color: #666688;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 5px 14px;
+    border: 1px solid #1e1e3a;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+}
+
+.back-to-top a:hover {
+    color: #e8c547;
+    border-color: #444466;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* --- 关于页面 --- */
+.about-section {
+    background: rgba(24, 24, 48, 0.6);
+    border: 1px solid #1e1e3a;
+    border-radius: 6px;
+    padding: 30px;
+    margin-bottom: 24px;
+}
+
+.about-section h3 {
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e1e3a;
+}
+
+.about-section h3.electronic { color: #00d4ff; }
+.about-section h3.rock       { color: #ff6b6b; }
+.about-section h3.hiphop     { color: #ffb347; }
+.about-section h3.chinese    { color: #6bcb77; }
+.about-section h3.default    { color: #e8c547; }
+
+.about-section p {
+    font-size: 14px;
+    color: #cccce0;
+    line-height: 2;
+    margin-bottom: 12px;
+}
+
+.about-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-section ul li {
+    font-size: 14px;
+    color: #cccce0;
+    line-height: 2.2;
+    padding: 4px 0 4px 22px;
+    position: relative;
+}
+
+.about-section ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+}
+
+.about-section ul li.electronic::before { color: #00d4ff; }
+.about-section ul li.rock::before       { color: #ff6b6b; }
+.about-section ul li.hiphop::before     { color: #ffb347; }
+.about-section ul li.chinese::before    { color: #6bcb77; }
+
+/* --- 关于页时间线 --- */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.timeline-item {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    padding: 12px 6px;
+    background: rgba(30, 30, 55, 0.5);
+    border-radius: 6px;
+    border-top: 3px solid #333355;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    border-top-color: #e8c547;
+    background: rgba(35, 35, 60, 0.7);
+}
+
+.timeline-item .year {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e8c547;
+    letter-spacing: 1px;
+}
+
+.timeline-item .album-name {
+    font-size: 11px;
+    color: #9999bb;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+/* --- 响应式 --- */
+@media screen and (max-width: 1020px) {
+    #container {
+        width: 96%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .album-detail {
+        flex-direction: column;
+    }
+
+    .album-detail .album-cover {
+        flex: 0 0 auto;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    #navbar ul {
+        flex-wrap: wrap;
+    }
+
+    #navbar ul li {
+        flex: 0 0 33.33%;
+    }
+
+    .timeline {
+        flex-direction: column;
+    }
+}
