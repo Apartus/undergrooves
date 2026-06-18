@@ -136,17 +136,15 @@
     <script>
     (function() {
         var bgm = document.getElementById('bgm');
-        bgm.load();
-        var p = bgm.play();
-        if (p) p.catch(function() {
-            document.body.addEventListener('touchend', function go() {
-                bgm.play();
-                document.body.removeEventListener('touchend', go);
-            });
-            document.body.addEventListener('click', function go() {
-                bgm.play();
-                document.body.removeEventListener('click', go);
-            });
+        var touched = false;
+        function tryPlay() {
+            if (touched && bgm.readyState >= 2) bgm.play().catch(function(){});
+        }
+        function interact() { touched = true; tryPlay(); }
+        bgm.addEventListener('canplay', tryPlay);
+        bgm.play().catch(function() {
+            document.body.addEventListener('touchend', interact);
+            document.body.addEventListener('click', interact);
         });
     })();
     </script>

@@ -34,7 +34,7 @@
                 <h2>潜入律动之下，听见不一样的回响</h2>
                 <p>
                     从 1960 年代摇滚经典到当代先锋电子，从华语独立之声到全球地下嘻哈——<br>
-                    本网站精选 12 张横跨年代与风格的专辑，不以流量为标准，<br>
+                    本网站精选 15 张横跨年代与风格的专辑，不以流量为标准，<br>
                     只为你推荐真正值得聆听的好作品。
                 </p>
             </div>
@@ -277,17 +277,15 @@
     <script>
     (function() {
         var bgm = document.getElementById('bgm');
-        bgm.load();
-        var p = bgm.play();
-        if (p) p.catch(function() {
-            document.body.addEventListener('touchend', function go() {
-                bgm.play();
-                document.body.removeEventListener('touchend', go);
-            });
-            document.body.addEventListener('click', function go() {
-                bgm.play();
-                document.body.removeEventListener('click', go);
-            });
+        var touched = false;
+        function tryPlay() {
+            if (touched && bgm.readyState >= 2) bgm.play().catch(function(){});
+        }
+        function interact() { touched = true; tryPlay(); }
+        bgm.addEventListener('canplay', tryPlay);
+        bgm.play().catch(function() {
+            document.body.addEventListener('touchend', interact);
+            document.body.addEventListener('click', interact);
         });
     })();
     </script>
