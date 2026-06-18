@@ -108,7 +108,8 @@ body::before {
 #navbar ul li:nth-child(3) a:hover { border-bottom-color: #ff6b6b; }
 #navbar ul li:nth-child(4) a:hover { border-bottom-color: #ffb347; }
 #navbar ul li:nth-child(5) a:hover { border-bottom-color: #6bcb77; }
-#navbar ul li:nth-child(6) a:hover { border-bottom-color: #c084fc; }
+#navbar ul li:nth-child(6) a:hover { border-bottom-color: #e8a0bf; }
+#navbar ul li:nth-child(7) a:hover { border-bottom-color: #c084fc; }
 
 /* --- 内容区域 --- */
 #content {
@@ -180,6 +181,7 @@ body::before {
 .section-title.rock::after       { background: #ff6b6b; }
 .section-title.hiphop::after     { background: #ffb347; }
 .section-title.chinese::after    { background: #6bcb77; }
+.section-title.japanese::after   { background: #e8a0bf; }
 
 /* --- 专辑卡片网格 --- */
 .album-grid {
@@ -268,6 +270,9 @@ body::before {
 .album-card.card-chinese .genre-tag { background: rgba(107, 203, 119, 0.12); color: #6bcb77; }
 .album-card.card-chinese:hover { border-color: rgba(107, 203, 119, 0.4); }
 
+.album-card.card-japanese .genre-tag { background: rgba(232, 160, 191, 0.12); color: #e8a0bf; }
+.album-card.card-japanese:hover { border-color: rgba(232, 160, 191, 0.5); }
+
 .album-card a {
     text-decoration: none;
     color: inherit;
@@ -352,6 +357,10 @@ body::before {
 .genre-chinese .meta span { background: rgba(107, 203, 119, 0.12); color: #5db868; }
 .genre-chinese { border-left-color: #6bcb77; }
 .genre-chinese .album-info h3 { color: #6bcb77; }
+
+.genre-japanese .meta span { background: rgba(232, 160, 191, 0.12); color: #e0a0c0; }
+.genre-japanese { border-left-color: #e8a0bf; }
+.genre-japanese .album-info h3 { color: #e8a0bf; }
 
 .album-detail .album-info .intro-text {
     font-size: 14px;
@@ -474,6 +483,7 @@ body::before {
 .about-section h3.rock       { color: #ff6b6b; }
 .about-section h3.hiphop     { color: #ffb347; }
 .about-section h3.chinese    { color: #6bcb77; }
+.about-section h3.japanese   { color: #e8a0bf; }
 .about-section h3.default    { color: #e8c547; }
 
 .about-section p {
@@ -507,6 +517,7 @@ body::before {
 .about-section ul li.rock::before       { color: #ff6b6b; }
 .about-section ul li.hiphop::before     { color: #ffb347; }
 .about-section ul li.chinese::before    { color: #6bcb77; }
+.about-section ul li.japanese::before   { color: #e8a0bf; }
 
 /* --- 关于页时间线 --- */
 .timeline {
